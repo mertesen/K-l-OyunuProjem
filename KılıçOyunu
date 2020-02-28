@@ -1,0 +1,100 @@
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Random;
+
+
+public class KılıçOyunu {
+    public static void main(String[] args) {
+        for (; ; ) {
+            int PlayerNum = 1;
+
+            JOptionPane.showMessageDialog(null, "Kılıç Oyununa Hoşgeldiniz!","KILIÇ OYUNU BY YGTESN", JOptionPane.WARNING_MESSAGE);
+            String SeçilenKart = JOptionPane.showInputDialog(null, "Desteden 1 kart seçiniz!","KILIÇ OYUNU BY YGTESN", JOptionPane.WARNING_MESSAGE);
+
+
+            ArrayList<String> Array = new ArrayList<String>();
+            {
+                Array.add("Maça 1");
+                Array.add("Maça 2");
+                Array.add("Maça 3");
+                Array.add("Maça 4");
+                Array.add("Maça 5");
+                Array.add("Maça 6");
+                Array.add("Maça 7");
+                Array.add("Maça 8");
+                Array.add("Maça 9");
+                Array.add("Maça 10");
+                Array.add("Maça Vale");
+                Array.add("Maça Kız");
+                Array.add("Maça Papaz");
+                Array.add("Kupa 1");
+                Array.add("Kupa 2");
+                Array.add("Kupa 3");
+                Array.add("Kupa 4");
+                Array.add("Kupa 5");
+                Array.add("Kupa 6");
+                Array.add("Kupa 7");
+                Array.add("Kupa 8");
+                Array.add("Kupa 9");
+                Array.add("Kupa 10");
+                Array.add("Kupa Vale");
+                Array.add("Kupa Kız");
+                Array.add("Kupa Papaz");
+                Array.add("Karo 1");
+                Array.add("Karo 2");
+                Array.add("Karo 3");
+                Array.add("Karo 4");
+                Array.add("Karo 5");
+                Array.add("Karo 6");
+                Array.add("Karo 7");
+                Array.add("Karo 8");
+                Array.add("Karo 9");
+                Array.add("Karo 10");
+                Array.add("Karo Vale");
+                Array.add("Karo Kız");
+                Array.add("Karo Papaz");
+                Array.add("Sinek 1");
+                Array.add("Sinek 2");
+                Array.add("Sinek 3");
+                Array.add("Sinek 4");
+                Array.add("Sinek 5");
+                Array.add("Sinek 6");
+                Array.add("Sinek 7");
+                Array.add("Sinek 8");
+                Array.add("Sinek 9");
+                Array.add("Sinek 10");
+                Array.add("Sinek Vale");
+                Array.add("Sinek Kız");
+                Array.add("Sinek Papaz");
+            }
+
+
+            for (; ; ) {
+                Random rastgeleSayı = new Random();
+                int Low = 0;
+                int High = Array.size();
+                int ÇekilenKartIndısı = rastgeleSayı.nextInt(High - Low) + Low;
+
+                if (SeçilenKart.equals(Array.get(ÇekilenKartIndısı))) {
+                    if (PlayerNum % 2 == 0) {
+                        PlayerNum = 2;
+                    } else {
+                        PlayerNum = 1;
+                    }
+                    JOptionPane.showMessageDialog(null, PlayerNum + "'inci Oyuncu "+SeçilenKart+" çekti ve KAZANDI!", "Winner Winner Chicken Dinner", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                } else {
+                    if (PlayerNum % 2 == 0) {
+                        PlayerNum = 2;
+                    } else {
+                        PlayerNum = 1;
+                    }
+                    JOptionPane.showMessageDialog(null,PlayerNum+"'inci oyuncu "+Array.get(ÇekilenKartIndısı)+" çekti!","Heyecan Devam ediyor!",JOptionPane.INFORMATION_MESSAGE);
+                    Array.remove(ÇekilenKartIndısı);
+                    PlayerNum++;
+                    continue;
+                }
+            }
+        }
+    }
+}
