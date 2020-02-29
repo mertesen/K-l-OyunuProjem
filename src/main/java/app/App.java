@@ -29,7 +29,7 @@ public class App {
     private static String pickCard(List<String> pickedCards) {
         String card = chooseRandomSuit() + " " + chooseRandomNumber();
         if (pickedCards.contains(card)) {
-            pickCard(pickedCards);
+            card = pickCard(pickedCards);
         }
         pickedCards.add(card);
         return card;
